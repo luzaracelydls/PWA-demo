@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Fitness App</title>
+</head>
+<body>
+    <div class="modal modal-overlay"></div>
+    <main>
+        <header>
+                <h1 class="unselectable">My Fitness App</h1>
+        </header>
+        
+        <div class="container">
+            <div class="alert" header="Alert" sub-header="Important message" message="Added"></div>
+            
+            <!--<ion-action-sheet trigger="click-sheet" header="Actions"></ion-action-sheet>
+            -->
+            <div class="modal">
+                <div class="modal-header">
+                    
+                        <h2 class="modal-title">Modal</h2>
+                        <button onclick="closeModal()" aria-label="close modal">X</button>
+                    
+                </div>
+                <div class="content ion-padding">
+                    <div id="addTraining">
+                        <div>
+                            <label for="trainingName">Training name:</label>
+                            <input placeholder="Example: Pilates" type="text" id="trainingName"/>
+                        </div>
+                        <div>
+                            <label for="trainingCalories">Calories burned:</label>
+                            <input placeholder="Example: 300" type="number" id="trainingCalories"/>
+                        </div>
+                        <div>
+                            <button shape="round" onclick="addElement()">Add Training</button>
+                        </div>
+                    </div>
+                    <div id="addMeal">
+                        <div>
+                            <label for="mealName">Meal name:</label>
+                            <input placeholder="Example: Scrambled eggs" type="text" id="mealName"/>
+                        </div>
+                        <div>
+                            <label for="mealCalories">Calories in this meal:</label>
+                            <input placeholder="Example: 300" type="number" id="mealCalories"/>
+                        </div>
+                        <div>
+                            <button shape="round" onclick="addElement()">Add Meal</button>
+                        </div>
+                    </div>
+                    <div id="changeName">
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" id="userNameTxt" placeholder="Example: Luz">
+                        </div>
+                        <div>
+                            <button onclick="updateSettings()">
+                                Update name
+                            </button>
+                        </div>
+                    </div>
+                    <div id="changeCaloriesGoal">
+                        <div>
+                            <label for="caloriesGoalTxt">New Goal:</label>
+                            <input type="text" id="caloriesGoalTxt" placeholder="1200">
+                        </div>
+                        <div>
+                            <button onclick="updateSettings()">
+                                Update calories goal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popover" trigger="popup-trigger" trigger-action="click">
+                <div class="ion-padding">
+                    <ul class="list">
+                        <li onclick="promptModal('training')"><span>Add a training</span></li>
+                        <li onclick="promptModal('meal')"><span>Add a meal</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ion-fab-button" slot="fixed" vertical="bottom" horizontal="end">
+                <button class="unselectable" id="popup-trigger" onclick="openPopover()">
+                    <span>+</span>
+                </button>
+            </div>
+            <ion-grid>
+                <div class="row">
+                    <div class="col" size="12" size-md="6">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" class="unselectable" id="activity">
+                                    <div class="card-header">My Activity</div>
+                                    <div class="card-content">
+                                        You're doing great!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" size="12" size-md="6">
+                                <div class="circle">
+                                    <img src="images/fit.png" alt="woman stretching"  width="70" height="70">
+                                </div>
+                                <div class="card"class="unselectable">
+                                    
+                                    <div class="card-header -center" class="-center">
+                                        <h3 id="userName">Luz</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>Your daily workout</p>
+                                        <div class="actionables">
+                                            <a href="javascript:void(0)" onclick="promptModal('userName')">Edit your name</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" size="12" size-md="6">
+                                <div class="circle">
+                                    <img src="images/fire.png" alt="flame" width="70" height="70">
+                                </div>
+                                <div class="card"class="unselectable">
+                                    <div class="card-header -center" class="-center">
+                                        <h3 id="caloriesGoal">380/1200</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <p id="caloriesLeftDisplay">You're 0 calories left</p>
+                                        <div class="actionables">
+                                            <a href="javascript:void(0)" onclick="promptModal('caloriesGoal')">Edit your goal</a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" size="12" size-md="6">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" class="unselectable">
+                                    <div class="card-header">My Trainings</div>
+                                    <div class="card-content" id="trainings">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" class="unselectable">
+                                    <div class="card-header">My Meals</div>
+                                    <div class="card-content" id="meals"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </ion-grid>
+            
+        </div>
+    </main>
+   
+    <script src="service-worker.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

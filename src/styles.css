@@ -1,0 +1,376 @@
+:root{
+    --lillac: #A167FF;
+    --mint-green: #BBFFC2;
+    --lime-green: #46D90F;
+    --yellow-green: #DBE800;
+    --rose: #F673E5;
+    --magenta: #AA206C;
+    --orange: #FC8630;
+    --white: #FFF;
+    --black: #000;
+    --dolphin-gray: #777777;
+    --light-gray: #D2D2D2;
+
+
+
+    --primary: var(--magenta);
+    --secondary: var(--rose);
+    --tertiary: var(--orange);
+    --highlight: var(--lime-green);
+    --text: var(--black);
+    --helper-text: var(--dolphin-gray); 
+
+}
+
+/*Display Mode*/
+/* It targets only the app used within the browser */
+@media (display-mode: browser) {
+}
+/* It targets only the app used with a system icon in standalone mode */
+@media (display-mode: standalone) {
+}
+/* It targets only the app used with a system icon in all mode */
+@media (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) {
+}
+
+
+body {
+    background: var(--yellow-green);
+    margin: 0;
+}
+
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.unselectable {
+    user-select: none;
+ }
+
+ .hidden {
+    display: none;
+ }
+
+ .show{
+    display: block !important;
+ }
+
+ .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -20px;
+    z-index: 2;
+    left: calc(50% - 40px);
+    background: var(--lime-green);
+    
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    
+    color: var(--white);
+ }
+
+ .circle img {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+ }
+
+
+ .-center {
+    text-align: center;
+ }
+
+ .card {
+    margin: 10px;
+
+    border-radius: 10px;
+ }
+
+ .card-content {
+    color: var(--dolphin-gray);
+ }
+
+ .card.-secondary{
+    background: var(--lillac);
+ }
+
+ .card.-secondary .card-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--white);
+    margin-bottom: 10px;
+ }
+ .card.-secondary .card-header .icon {
+    margin-right: 10px;
+ }
+
+
+ ul {
+    list-style: none;
+    padding: 10px;
+ }
+
+ ul li {
+    padding: 10px;
+    font-weight: 700;
+    border-bottom: solid 1px var(--light-gray);
+    
+ }
+ ul li span {
+    
+ }
+
+ header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    background: var(--primary);
+    color: var(--white);
+    height: 80px;
+    box-shadow : 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    z-index: 99;
+    justify-content: center;
+ }
+
+ header h1 {
+    font-size: 1.5em;
+ }
+
+ .container {
+    padding-top: 80px;
+ }
+ 
+.card, 
+.popover, 
+.popover .content,
+.list,
+.modal .content,
+.alert,
+.alert .content,
+.list .item{
+    background: var(--white);
+}
+
+.alert {
+    background: var(--white);
+}
+.popover {
+    position: fixed;
+    display: none;
+    bottom: 180px;
+    right: 15px;
+    border-radius: 10px;
+    min-width: 150px; 
+}
+.fab-button {
+    background: var(--primary);
+    
+}
+
+.toolbar {
+    background: var(--primary);
+    color: var(--white);
+}
+
+
+.card {
+   /*
+    border: solid 1px var(--light-gray);
+    box-shadow: none;
+    */
+    position: relative;
+    padding: 10px;
+}
+
+.card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--rose);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-header {
+    --color: var(--black);
+    font-weight: 700;
+    font-size: 18px;
+    text-transform:capitalize;
+}
+
+.card-header h3 {
+    font-size: 35px;
+    font-weight: 700;
+    margin-top: 40px;
+}
+
+.chip{
+    display: inline-block;
+    padding: 7px 15px;
+    background: var(--mint-green);
+    font-weight: 700;
+    border-radius: 40px;
+    color: var(--black);
+}
+
+button:hover, ul li:hover {
+    cursor: pointer;
+}
+
+.ion-fab-button {
+    position: fixed;
+    bottom: 90px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    box-shadow : 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    z-index:999;
+}
+.ion-fab-button button {
+    background: transparent;
+    font-size: 30px;
+    color: var(--white);
+    font-weight: 700;
+    border: none;
+}
+.popover {
+    display: none;
+}
+.modal {
+    position: fixed;
+    display: none;
+    background: var(--white);
+    width: calc(100vw - 50px);
+    z-index: 9999;
+    padding: 10px;
+    top: 20vh;
+    left: 15px;
+    top: 20vh;
+}
+.modal:not(.modal-overlay){
+    border-radius: 10px;
+}
+
+.modal .modal-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal .modal-header button {
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.modal.modal-overlay {
+    position: fixed;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+}
+
+.modal button {
+    background: var(--primary);
+    padding: 10px;
+    color: var(--white);
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 25px;
+}
+
+.modal  div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+}
+
+label, input {
+    display: block;
+    margin: 5px;
+    font-size: 18px;
+}
+
+input {
+    padding: 10px;
+
+    border: solid 1px var(--dolphin-gray);
+}
+
+input::placeholder{
+    font-style: italic;
+}
+
+label {
+    font-weight: 700;
+    
+}
+
+
+#calories .icon,
+#user .icon {
+    font-size: 50px;
+}
+
+#activity {
+    margin-bottom: 30px;
+}
+
+#changeCaloriesGoal,
+#changeName,
+#addTraining, 
+#addMeal {
+    display: none;
+}
+
+#meals .card.-secondary {
+    background: var(--orange);
+}
+#meals .card.-secondary .chip {
+    background: var(--magenta);
+    color: var(--white)
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+.col{
+    flex: 1 1 100%;
+    position: relative;
+}
+.col[size-md="6"]{
+    flex: 1 1 100%;
+}
+
+@media screen and (min-width: 768px){
+    .col[size-md="6"]{
+        flex: 1 1 50%;
+    }
+    .row {
+        flex-direction: row;
+    }
+}
